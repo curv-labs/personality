@@ -63,7 +63,8 @@ export default class Personality {
       types: config.types || 'image/*',
       namePlaceholder: config.namePlaceholder || 'Name',
       descriptionPlaceholder: config.descriptionPlaceholder || 'Description',
-      linkPlaceholder: config.linkPlaceholder || 'Link'
+      linkPlaceholder: config.linkPlaceholder || 'Link',
+      uploader: config.uploader || undefined
     };
 
     /**
