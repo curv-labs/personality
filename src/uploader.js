@@ -40,11 +40,11 @@ export default class Uploader {
 
     // If the config has a custom
     if (this.config.uploader && typeof this.config.uploader.selector === 'function') {
-    	upload = this.config.uploader.selector();
+      upload = this.config.uploader.selector();
     } else {
       // custom uploading
       if (this.config.uploader && typeof this.config.uploader.uploadByFile === 'function') {
-        debugger;
+        // debugger;
         upload = ajax.selectFiles({ accept: this.config.types }).then((files) => {
           preparePreview(files[0]);
 
@@ -78,4 +78,13 @@ export default class Uploader {
       this.onError(error);
     });
   }
+}
+
+/**
+ * Check if passed object is a Promise
+ * @param  {*}  object - object to check
+ * @return {Boolean}
+ */
+function isPromise(object) {
+  return Promise.resolve(object) === object;
 }
