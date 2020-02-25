@@ -14,6 +14,8 @@ const LOADER_DELAY = 500;
  * @property {string} description - person's description
  * @property {string} link - link to person's website
  * @property {string} photo - person's photo url
+ * @property {object} file — Image file data returned from backend
+ * @property {string} file.url — image URL
  */
 
 /**
@@ -104,6 +106,7 @@ export default class Personality {
 
     if (success && file && file.url) {
       Object.assign(this.data, { photo: file.url });
+      Object.assign(this.data, { file: file });
 
       this.showFullImage();
     }
@@ -198,7 +201,8 @@ export default class Personality {
       name: name || this._data.name,
       description: description || this._data.description,
       link: link || this._data.link,
-      photo: photo || this._data.photo
+      photo: photo || this._data.photo,
+      file: this.data.file
     });
   }
 
